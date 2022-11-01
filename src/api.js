@@ -27,3 +27,9 @@ export const getTopics = () => {
     return data;
   });
 };
+
+export const getArticlesByArticleId = (article_id) => {
+  return axios.get(`${baseURL}/articles/${article_id}`).then(({ data }) => {
+    return data;
+  });
+};

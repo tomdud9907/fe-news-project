@@ -1,8 +1,14 @@
-// https://nc-njus.herokuapp.com/api/articles
-import React from 'react'
+import { Link } from "react-router-dom";
+import React from "react";
 
 const Header = () => {
-     return <h1>Welcome to nc-njus</h1>
-}
+  return (
+    <header className="mainHead">
+      <Link to="/">
+        <h1>Welcome to nc-njus</h1>
+      </Link>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
