@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as api from "../api";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 function TopicPages() {
@@ -38,9 +38,15 @@ function TopicPages() {
           votes,
         }) => {
           return (
-            <Card className="text-center" style={{ width: "38rem" }}>
+            <Card
+              key={article_id}
+              className="text-center"
+              style={{ width: "38rem" }}
+            >
               <Card.Body>
-                <Card.Title>{title}</Card.Title>
+                <Link to={`/articles/${article_id}`}>
+                  <Card.Title>{title}</Card.Title>
+                </Link>
                 <Card.Subtitle className="mb-2 text-muted">
                   {topic}
                 </Card.Subtitle>

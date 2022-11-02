@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { getTopics } from "../api";
 import { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
-function Nav() {
+function Navi() {
   const [topic, setTopic] = useState([]);
 
   useEffect(() => {
@@ -12,20 +15,18 @@ function Nav() {
   }, []);
 
   return (
-    <nav className="main-nav">
-      {topic.map((topic) => {
-        return (
-          <ul className="nav_bar_topics">
-            <li>
-              <Link to={`/${topic.slug}`} key={topic.slug} id="Nav_Link_Text">
-                <h5>{topic.slug}</h5>
-              </Link>
-            </li>
-          </ul>
-        );
-      })}
-    </nav>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">Select category:</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="/football">Football</Nav.Link>
+          <Nav.Link href="/cooking">Cooking</Nav.Link>
+          <Nav.Link href="/coding">Coding</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Nav;
+export default Navi;
