@@ -4,6 +4,7 @@ import * as api from "../api";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -40,9 +41,15 @@ function ArticleList() {
             votes,
           }) => {
             return (
-              <Card className="text-center" style={{ width: "38rem" }}>
+              <Card
+                key={article_id}
+                className="text-center"
+                style={{ width: "38rem" }}
+              >
                 <Card.Body>
-                  <Card.Title>{title}</Card.Title>
+                  <Link to={`/articles/${article_id}`}>
+                    <Card.Title>{title}</Card.Title>
+                  </Link>
                   <Card.Subtitle className="mb-2 text-muted">
                     {topic}
                   </Card.Subtitle>
