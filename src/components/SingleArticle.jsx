@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../api";
 import Card from "react-bootstrap/Card";
-// import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import LikeDislike from "./LikeDislike";
 import Comments from "./Comments";
 
@@ -33,7 +31,6 @@ function SingleArticle() {
           </Card.Subtitle>
           <Card.Text>{article.body}</Card.Text>
           <Card.Text>{`Comments: ${article.comment_count}`}</Card.Text>
-          <Card.Link href="#">Add Comment</Card.Link>
           <LikeDislike article_id={article_id} votes={article.votes} />
         </Card.Body>
 

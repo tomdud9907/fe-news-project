@@ -1,6 +1,7 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import * as api from "../api";
 import { useParams } from "react-router-dom";
+import AddComment from "./AddComment";
 
 import Card from "react-bootstrap/Card";
 
@@ -19,16 +20,19 @@ function Comments() {
 
   return (
     <div>
+      <AddComment article_id={article_id} setComments={setComments} />
       <ul>
         {comments.map(
           ({ comment_id, body, article_id, author, created_at }) => {
             return (
-              <Card className="text-center" style={{ width: "38rem" }}>
-                <Card.Body>
-                  <Card.Text>{body}</Card.Text>
-                </Card.Body>
-                <Card.Footer className="text-muted">{`created by: ${author} date: ${created_at}`}</Card.Footer>
-              </Card>
+              <>
+                <Card className="text-center" style={{ width: "38rem" }}>
+                  <Card.Body>
+                    <Card.Text>{body}</Card.Text>
+                  </Card.Body>
+                  <Card.Footer className="text-muted">{`created by: ${author} date: ${created_at}`}</Card.Footer>
+                </Card>
+              </>
             );
           }
         )}

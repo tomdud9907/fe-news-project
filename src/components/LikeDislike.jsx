@@ -1,8 +1,5 @@
-import { useReducer, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
 import * as api from "../api";
-// import Button from "react-bootstrap/esm/Button";
-// import { useState } from "react-router-dom";
 
 export default function LikeDislike({ article_id, votes }) {
   console.log(article_id, "articleid");
