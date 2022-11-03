@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { getTopics } from "../api";
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
