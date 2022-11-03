@@ -33,3 +33,11 @@ export const getArticlesByArticleId = (article_id) => {
     return data;
   });
 };
+
+export const patchArticleVotes = (article_id, inc_votes) => {
+  return axios
+    .patch(`${baseURL}/articles/${article_id}`, { inc_vote: inc_votes })
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};
