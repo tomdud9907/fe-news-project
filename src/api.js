@@ -41,3 +41,11 @@ export const patchArticleVotes = (article_id, inc_votes) => {
       return article;
     });
 };
+
+export const getCommentByArticleId = (article_id) => {
+  return axios
+    .get(`${baseURL}/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data;
+    });
+};

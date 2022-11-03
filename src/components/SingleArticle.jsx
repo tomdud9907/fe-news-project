@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 // import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import LikeDislike from "./LikeDislike";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -35,8 +36,11 @@ function SingleArticle() {
           <Card.Link href="#">Add Comment</Card.Link>
           <LikeDislike article_id={article_id} votes={article.votes} />
         </Card.Body>
+
         <Card.Footer className="text-muted">{`created by: ${article.author} date: ${article.created_at}`}</Card.Footer>
       </Card>
+      <h3 className="h3">Comments:</h3>
+      <Comments />
     </div>
   );
 }
