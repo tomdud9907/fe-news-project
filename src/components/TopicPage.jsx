@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import LikeDislike from "./LikeDislike";
 
 function TopicPages() {
   const { topic } = useParams();
@@ -12,7 +13,6 @@ function TopicPages() {
   const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState();
   const [sort, setSort] = useState("created_at");
-  const [err, setErr] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
@@ -52,6 +52,7 @@ function TopicPages() {
                 </Card.Subtitle>
                 <Card.Text>{body.split(" ").slice(0, 25).join(" ")}</Card.Text>
                 <Button variant="primary">Add comment</Button>
+                <LikeDislike article_id={article_id} votes={votes} />
               </Card.Body>
               <Card.Footer className="text-muted">{`created by: ${author} date: ${created_at}`}</Card.Footer>
             </Card>

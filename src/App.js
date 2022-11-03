@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TopicPage from "./components/TopicPage";
 import Navi from "./components/Nav";
 import SingleArticle from "./components/SingleArticle";
+import LikeDislike from "./components/LikeDislike";
 
 function App() {
   return (
