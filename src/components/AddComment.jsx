@@ -25,7 +25,6 @@ export default function AddComment({ article_id, setComments }) {
       });
     });
   };
-  console.log(comment.length, "kometarz");
 
   if (comment == null) {
     return (

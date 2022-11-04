@@ -56,3 +56,7 @@ export const postComment = (article_id, newComment) => {
       return comment;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`).then(() => {});
+};

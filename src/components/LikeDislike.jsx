@@ -2,7 +2,6 @@ import { useState } from "react";
 import * as api from "../api";
 
 export default function LikeDislike({ article_id, votes }) {
-  console.log(article_id, "articleid");
   const [newVote, changeVote] = useState(0);
   const [err, setErr] = useState(null);
 
@@ -13,12 +12,9 @@ export default function LikeDislike({ article_id, votes }) {
 
     api
       .patchArticleVotes(article_id, numberOfVotes)
-      .then(() => {
-        console.log(article_id);
-      })
+      .then(() => {})
 
       .catch((err) => {
-        console.log(err);
         setErr("Something went wrong, please try again.");
       });
   };
