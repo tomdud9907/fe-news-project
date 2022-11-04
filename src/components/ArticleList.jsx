@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LikeDislike from "./LikeDislike";
+import { SortBy } from "./SortBy";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -30,6 +31,7 @@ function ArticleList() {
   return (
     <div>
       <ul>
+        <SortBy setSort={setSort} setOrder={setOrder} />
         {articles.map(
           ({
             article_id,
@@ -42,22 +44,23 @@ function ArticleList() {
             votes,
           }) => {
             return (
-              <Card className="text-center" style={{ width: "38rem" }}>
-                <Card.Body>
-                  <Link to={`/articles/${article_id}`}>
-                    <Card.Title>{title}</Card.Title>
-                  </Link>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    {topic}
-                  </Card.Subtitle>
-                  <Card.Text>
-                    {body.split(" ").slice(0, 25).join(" ")}
-                  </Card.Text>
-                  <Button variant="primary">Add comment</Button>
-                  <LikeDislike article_id={article_id} votes={votes} />
-                </Card.Body>
-                <Card.Footer className="text-muted">{`created by: ${author} date: ${created_at}`}</Card.Footer>
-              </Card>
+              <>
+                <Card className="text-center" style={{ width: "38rem" }}>
+                  <Card.Body>
+                    <Link to={`/articles/${article_id}`}>
+                      <Card.Title>{title}</Card.Title>
+                    </Link>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      {topic}
+                    </Card.Subtitle>
+                    <Card.Text>
+                      {body.split(" ").slice(0, 25).join(" ")}
+                    </Card.Text>
+                    <LikeDislike article_id={article_id} votes={votes} />
+                  </Card.Body>
+                  <Card.Footer className="text-muted">{`created by: ${author} date: ${created_at}`}</Card.Footer>
+                </Card>
+              </>
             );
           }
         )}

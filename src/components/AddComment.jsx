@@ -25,6 +25,15 @@ export default function AddComment({ article_id, setComments }) {
       });
     });
   };
+  console.log(comment.length, "kometarz");
+
+  if (comment == null) {
+    return (
+      <div>
+        <p> Your comment is empty!</p>
+      </div>
+    );
+  }
 
   return (
     <div className="addComment">
