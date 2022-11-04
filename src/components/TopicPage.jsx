@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import LikeDislike from "./LikeDislike";
-
+import { SortBy } from "./SortBy";
 function TopicPages() {
   const { topic } = useParams();
 
@@ -26,6 +26,7 @@ function TopicPages() {
 
   return (
     <div>
+      <SortBy setSort={setSort} setOrder={setOrder} />
       {articles.map(
         ({
           article_id,
