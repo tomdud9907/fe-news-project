@@ -26,16 +26,3 @@ export const SortBy = ({ setSort, setOrder }) => {
     </div>
   );
 };
-// return (
-//   <DropdownButton
-//     id="dropdown-basic-button"
-//     title="Sort By"
-//     onChange={(event) => {
-//       handleClick(event.target.value);
-//     }}
-//   >
-//     <Dropdown.Item value="created_at ASC">Action</Dropdown.Item>
-//     <Dropdown.Item value="created_at DESC">Another action</Dropdown.Item>
-//     <Dropdown.Item value="votes ASC">Something else</Dropdown.Item>
-//   </DropdownButton>
-// );
