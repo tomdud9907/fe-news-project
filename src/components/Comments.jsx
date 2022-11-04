@@ -55,8 +55,10 @@ function Comments() {
         key={article_id}
       />
       <ul>
-        {comments.map(
-          ({ comment_id, body, article_id, author, created_at }) => {
+        {comments
+          .sort((a, b) => b.comment_id - a.comment_id)
+          .map(({ comment_id, body, article_id, author, created_at }) => {
+            console.log(comments);
             return (
               <>
                 <Card className="text-center" style={{ width: "38rem" }}>
@@ -77,8 +79,7 @@ function Comments() {
                 </Card>
               </>
             );
-          }
-        )}
+          })}
       </ul>
     </div>
   );
